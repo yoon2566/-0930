@@ -1,4 +1,4 @@
-import {spawn} from 'node:child_process';
+import {spawn,spawnSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {realpathSync} from 'node:fs';
 import path from 'node:path';
@@ -21,8 +21,17 @@ if(state==='other'){
 }else{
  let ready=state==='ours';
  if(!ready){
-  const child=spawn(process.execPath,[path.join(root,'server.mjs')],{cwd:root,detached:true,stdio:'ignore',windowsHide:true});
-  child.on('error',error=>console.error(error.message));child.unref();
+  if(process.platform==='win32'){
+   // A new hidden console lets OpenCode's terminal close after this launcher exits.
+   // A detached Node child alone can keep the Windows pseudo-console open.
+   const quote=value=>"'"+value.replaceAll("'","''")+"'";
+   const command=`$ErrorActionPreference='Stop'; Start-Process -FilePath ${quote(process.execPath)} -ArgumentList ${quote('"'+path.join(root,'server.mjs')+'"')} -WorkingDirectory ${quote(root)} -WindowStyle Hidden`;
+   const launched=spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-EncodedCommand',Buffer.from(command,'utf16le').toString('base64')],{stdio:'ignore',windowsHide:true,timeout:10000});
+   if(launched.error||launched.status!==0)throw new Error('Could not start the hidden game server. Run node server.mjs in a separate terminal.');
+  }else{
+   const child=spawn(process.execPath,[path.join(root,'server.mjs')],{cwd:root,detached:true,stdio:'ignore'});
+   child.on('error',error=>console.error(error.message));child.unref();
+  }
   for(let attempt=0;attempt<40;attempt++){
    await new Promise(resolve=>setTimeout(resolve,150));
    if(await probe()==='ours'){ready=true;break;}
