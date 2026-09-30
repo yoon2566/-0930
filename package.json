@@ -1,0 +1,1 @@
+{"name":"peak-jump-classroom","version":"1.0.0","private":true,"type":"module","description":"한 문장씩 만드는 정상까지 점프 3D 게임 수업","engines":{"node":">=20"},"scripts":{"start":"node start.mjs","serve":"node server.mjs","test:teacher":"node --test teacher/physics.test.js"}}

@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+*.pid
+*.tmp
+.opencode/
+.codex/
+qa_local/
+output/
+auth.json
+Thumbs.db
+.DS_Store

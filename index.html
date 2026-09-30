@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>내가 만드는 정상까지 점프 · 6단계 실습</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%231d5952'/%3E%3Cpath d='M7 31L20 8l13 23z' fill='%23dcf0ad'/%3E%3C/svg%3E">
+  <script type="importmap">{"imports":{"three":"./vendor/three/three.module.js","three/addons/":"./vendor/three/addons/"}}</script>
+</head>
+<body data-ready="false" data-avatar-status="loading" data-animation="준비 중">
+  <canvas id="game" tabindex="0" aria-label="정상까지 점프 3D 게임"></canvas>
+  <header><a class="brand" href="./">▲ SUMMIT LAB</a><span class="tag">작은 코드로 만드는 나의 3D 게임</span><button id="reset">처음부터</button></header>
+  <aside class="lesson-card"><div class="eyebrow">BUILD IT, ONE STEP AT A TIME</div><h1>내가 만드는<br><em>정상까지 점프!</em></h1><p id="stage-title">단계 0 · 움직임부터 만들어요</p><p class="helper" id="objective">아직 시작 발판 하나예요.<br>첫 요청문으로 이동 코드를 만들어 보세요.</p><div class="steps" aria-label="실습 단계"><span data-step="1">1 이동</span><span data-step="2">2 점프</span><span data-step="3">3 산길</span><span data-step="4">4 난이도</span><span data-step="5">5 쉼터</span><span data-step="6">6 캐릭터</span></div><p class="refresh-note">코드 저장 → 브라우저 새로고침 → 직접 확인</p></aside>
+  <section class="status" aria-label="현재 게임 상태"><span>발판 <b id="course-count">1</b>개</span><span>높이 <b id="height">0.0</b>m</span><span>쉼터 <b id="camp">시작</b></span><span>동작 <b id="animation">기본 캐릭터</b></span></section>
+  <div class="controls"><div class="dpad"><button data-move="up" aria-label="앞으로">▲</button><button data-move="left" aria-label="왼쪽으로">◀</button><button data-move="down" aria-label="뒤로">▼</button><button data-move="right" aria-label="오른쪽으로">▶</button></div><button id="jump-button">점프 <small>SPACE</small></button></div>
+  <footer><span><kbd>W A S D</kbd> / 방향키 이동 · <kbd>SPACE</kbd> 점프 · <kbd>R</kbd> 복귀</span><button id="pause">잠깐 쉬기 · ESC</button></footer>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <div id="loading">산길을 준비하고 있어요…</div>
+  <dialog id="win"><span class="flag">⚑</span><h2>정상에 도착했어요!</h2><p>내가 만든 이동과 점프로<br>산길을 끝까지 올라왔어요.</p><button id="again">다시 도전하기</button></dialog>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

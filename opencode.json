@@ -1,0 +1,73 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "openrouter/deepseek/deepseek-v4.1-flash",
+  "small_model": "openrouter/deepseek/deepseek-v4.1-flash",
+  "default_agent": "build",
+  "autoupdate": false,
+  "share": "disabled",
+  "mcp": {
+    "unityMCP": {
+      "enabled": false
+    }
+  },
+  "permission": {
+    "*": "deny",
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*_records*": "deny",
+      "*rehearsal_records*": "deny",
+      "qa/*": "deny",
+      "QA/*": "deny",
+      "*.glb": "deny",
+      "*.fbx": "deny",
+      "*.png": "deny",
+      "*.jpg": "deny",
+      "*.zip": "deny",
+      "teacher/*": "deny",
+      "*/teacher/*": "deny",
+      "*\\teacher\\*": "deny"
+    },
+    "glob": "allow",
+    "grep": "allow",
+    "list": "allow",
+    "edit": {
+      "*": "deny",
+      "movement.js": "allow",
+      "*/movement.js": "allow",
+      "*\\movement.js": "allow",
+      "jump.js": "allow",
+      "*/jump.js": "allow",
+      "*\\jump.js": "allow",
+      "course.js": "allow",
+      "*/course.js": "allow",
+      "*\\course.js": "allow",
+      "checkpoints.js": "allow",
+      "*/checkpoints.js": "allow",
+      "*\\checkpoints.js": "allow",
+      "avatar.js": "allow",
+      "*/avatar.js": "allow",
+      "*\\avatar.js": "allow",
+      "*_records*": "deny",
+      "*rehearsal_records*": "deny",
+      "qa/*": "deny",
+      "QA/*": "deny",
+      "teacher/*": "deny",
+      "*/teacher/*": "deny",
+      "*\\teacher\\*": "deny"
+    },
+    "external_directory": "deny",
+    "bash": {
+      "*": "deny",
+      "node --version": "allow",
+      "node start.mjs": "allow",
+      "npm run start": "allow"
+    },
+    "task": "deny",
+    "webfetch": "deny",
+    "websearch": "deny",
+    "skill": "deny",
+    "question": "deny"
+  }
+}
