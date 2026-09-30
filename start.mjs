@@ -37,6 +37,6 @@ if(state==='other'){
    if(await probe()==='ours'){ready=true;break;}
   }
  }
- if(ready)console.log(`Student: ${url}/\nPrompts: ${url}/lesson.html\nTeacher: ${url}/teacher/\nRefresh after each prompt. No npm install is needed.`);
+ if(ready)console.log(`Game: ${url}/\nThe local game server is running. Open this address in your browser. No npm install is needed.`);
  else{console.error('Server did not start. Run node server.mjs to see the error.');process.exitCode=1;}
 }

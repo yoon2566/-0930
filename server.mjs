@@ -12,7 +12,7 @@ const server=http.createServer((req,res)=>{
  let pathname;
  try{pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);}catch{res.writeHead(400);res.end('Bad request');return;}
  if(pathname==='/health'){res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify({app:'peak-jump-classroom',project}));return;}
- if(pathname==='/teacher'){res.writeHead(302,{Location:'/teacher/'});res.end();return;}
+ if(['/teacher','/teacher/','/lesson.html'].includes(pathname)){res.writeHead(302,{Location:'/'});res.end();return;}
  if(pathname.split(/[\\/]/).some(part=>part.startsWith('.'))){res.writeHead(403);res.end('Forbidden');return;}
  if(pathname.endsWith('/'))pathname+='index.html';
  const filename=path.resolve(root,'.'+pathname);
@@ -25,4 +25,4 @@ const server=http.createServer((req,res)=>{
  });
 });
 server.on('error',error=>{console.error(error.code==='EADDRINUSE'?`Port ${port} is already in use. Close that server or use another PORT.`:error.message);process.exitCode=1;});
-server.listen(port,'127.0.0.1',()=>console.log(`Student: http://127.0.0.1:${port}/\nTeacher: http://127.0.0.1:${port}/teacher/`));
+server.listen(port,'127.0.0.1',()=>console.log(`Game: http://127.0.0.1:${port}/`));
