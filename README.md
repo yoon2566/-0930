@@ -63,4 +63,6 @@ https://github.com/yoon2566/-0930 저장소를 peak-jump-classroom 폴더에 내
 - 처음 내려받기와 모델 연결은 수업 전에 마칩니다. 단계별 목표는 1~2분이며 컴퓨터·네트워크·AI 응답에 따라 달라집니다.
 - 게임 실행에는 npm 설치가 필요 없습니다. 원본 GitHub에 학생 수정 내용을 자동으로 올리지 않습니다.
 
+실제 DeepSeek 실행에서 단계별 코드 저장은 **3.6~7.5초**였습니다. [실행 확인 기록](VALIDATION.md)
+
 제공 자료와 라이선스: [THIRD_PARTY.md](THIRD_PARTY.md)
